@@ -30,5 +30,10 @@ pipeline{
                 sh 'df -h'
             }
         }
+        stage('6-blockchecking'){
+            steps{
+                sh 'lsblk'
+            }
+        }
 	}
 }
