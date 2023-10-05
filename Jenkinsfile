@@ -2,28 +2,32 @@ pipeline{
 	agent any 
 	stages{
 		stage('1-clone'){
-		  steps{
-checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-id', url: 'https://github.com/etech-group5/app.git']])
-		  }	
-		}
-		stage('2-systemcheck'){
 			steps{
-				sh 'sudo systemctl status jenkins'
+	checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-id', url: 'https://github.com/etech-group5/app.git']])
 			}
 		}
-		stage('3-diskcheck'){
+		stage('2-turn'){
 			steps{
-				sh 'df -h'
+				echo "keep walking"
+				sh 'lscpu'
 			}
 		}
-		stage('4-blockcheck'){
+		stage('3-rotate'){
 			steps{
+				echo "keep walking"
+				sh 'whoami'
+			}
+		}
+		stage('4-station'){
+			steps{
+				echo "keep walking"
+				echo "final stage"
 				sh 'lsblk'
 			}
 		}
-        stage('5-ops-check'){
+        stage('5-diskchecker'){
             steps{
-               sh 'cat /etc/os-release'
+                sh 'df -h'
             }
         }
 	}
