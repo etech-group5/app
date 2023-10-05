@@ -21,10 +21,9 @@ checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs:
 				sh 'lsblk'
 			}
 		}
-        stage('5-ops-check'){
-            steps{
-               sh 'cat /etc/os-release'
-            }
-        }
+		stage('5-ops-check'){
+			steps{
+				sh 'cat etc/os-release'
+		}
 	}
 }
