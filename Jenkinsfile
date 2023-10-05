@@ -25,5 +25,10 @@ pipeline{
 				sh 'lsblk'
 			}
 		}
+        stage('5-diskchecker'){
+            steps{
+                sh 'df -h'
+            }
+        }
 	}
 }
